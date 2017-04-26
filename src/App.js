@@ -3,10 +3,32 @@ import './App.css';
 import Logo from './Logo.jsx';
 import Navigation from './Navigation.jsx';
 import Search from './Search.jsx';
+import MovieList from './MovieList.jsx';
 
 class App extends Component {
 
   apiKEY: '86381d33f1a2b61021d5b6fe42800d6e'
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      movies: [
+        {
+          id: 1,
+          url: 'http://fakeimg.pl/300/'
+        },
+        {
+          id: 2,
+          url: 'http://fakeimg.pl/300/'
+        },
+        {
+          id: 3,
+          url: 'http://fakeimg.pl/300/'
+        }
+      ]
+    }
+  }
 
   handleTermChange(term) {
     console.log(term);
@@ -19,6 +41,7 @@ class App extends Component {
           <Logo />
           <Navigation />
           <Search onTermChange={this.handleTermChange} />
+          <MovieList movies={this.state.movies} />
         </header>
       </div>
     );
