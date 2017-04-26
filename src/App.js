@@ -37,10 +37,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <header className="Header">
           <Logo />
           <Navigation />
           <Search onTermChange={this.handleTermChange} />
           <MovieList movies={this.state.movies} />
+        </header>
       </div>
     );
   }
