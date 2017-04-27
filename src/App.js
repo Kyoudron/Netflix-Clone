@@ -14,15 +14,17 @@ class App extends Component {
 
     this.state = {
       movies: []
-    }
+    };
+
+    this.handleTermChange = this.handleTermChange.bind(this);
   }
 
-  handleTermChange(term) {
+  handleTermChange = (term) => {
     const searchMovie = `http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC`;
 
     request.get(searchMovie, (err, res) => {
-      this.setState({ gifs: res.body.data })
-});
+      this.setState({ movies: res.body.data })
+    });
   }
 
   render() {
@@ -31,7 +33,7 @@ class App extends Component {
         <header className="Header">
           <Logo />
           <Navigation />
-          <Search onTermChange={this.handleTermChange} />
+          <Search onTermChange={term => this.handleTermChange(term)} />
           <MovieList movies={this.state.movies} />
         </header>
       </div>
