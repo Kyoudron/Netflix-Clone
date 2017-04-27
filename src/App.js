@@ -4,10 +4,10 @@ import Logo from './Logo.jsx';
 import Navigation from './Navigation.jsx';
 import Search from './Search.jsx';
 import MovieList from './MovieList.jsx';
+import request from 'superagent';
 
 class App extends Component {
 
-  apiKEY: '86381d33f1a2b61021d5b6fe42800d6e'
 
   constructor(props) {
     super(props);
@@ -18,7 +18,11 @@ class App extends Component {
   }
 
   handleTermChange(term) {
-    console.log(term);
+    const searchMovie = `http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC`;
+
+    request.get(searchMovie, (err, res) => {
+      this.setState({ gifs: res.body.data })
+});
   }
 
   render() {
