@@ -21,7 +21,7 @@ class App extends Component {
 
   handleTermChange = (term) => {
     const searchMovie = `http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC`;
-
+//// https://api.themoviedb.org/3/movie/${term.replace(/\s/g, '+')}/images?api_key=86381d33f1a2b61021d5b6fe42800d6e&language=en-US
     request.get(searchMovie, (err, res) => {
       this.setState({ movies: res.body.data })
     });
