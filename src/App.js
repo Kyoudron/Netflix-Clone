@@ -4,10 +4,12 @@ import Logo from './Logo.jsx';
 import Navigation from './Navigation.jsx';
 import Search from './Search.jsx';
 import MovieList from './MovieList.jsx';
+import MovieRow from './MovieRow.jsx';
 import request from 'superagent';
 
 class App extends Component {
 
+  apiKEY: '86381d33f1a2b61021d5b6fe42800d6'
 
   constructor(props) {
     super(props);
@@ -35,6 +37,7 @@ class App extends Component {
           <Navigation />
           <Search onTermChange={term => this.handleTermChange(term)} />
           <MovieList movies={this.state.movies} />
+          <MovieRow />
         </header>
       </div>
     );
