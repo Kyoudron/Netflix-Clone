@@ -3,8 +3,6 @@ import Item from './Item.jsx';
 
 class MovieRow extends Component {
 
-  apiKEY: '86381d33f1a2b61021d5b6fe42800d6'
-
   constructor(props) {
     super(props);
 
@@ -15,7 +13,7 @@ class MovieRow extends Component {
   }
 
   loadContent = () => {
-    var movieURL = 'https://api.themoviedb.org/3/' + this.props.url + '&api_key=' + this.apiKey;
+    var movieURL = 'https://api.themoviedb.org/3/' + this.props.url + '&api_key=86381d33f1a2b61021d5b6fe42800d6e';
     fetch(movieURL).then((response) => {
       return response.json();
     }).then((data) => {
@@ -64,10 +62,10 @@ class MovieRow extends Component {
     }
 
     return (
-      <div ref="titlecategory" className="TitleList" data-loaded={this.state.mounted}>
-        <div className="Title">
+      <div ref="moviecategory" className="MovieRow" data-loaded={this.state.mounted}>
+        <div className="Movie">
           <h1>{this.props.title}</h1>
-          <div className="titles-wrapper">
+          <div className="movies-wrapper">
             {titles}
           </div>
         </div>
