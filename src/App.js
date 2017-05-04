@@ -36,7 +36,10 @@ class App extends Component {
           <Navigation />
           <Search onTermChange={term => this.handleTermChange(term)} />
         </header>
+          <MovieRow title="Popular now" url='discover/movie?sort_by=popularity.desc&page=1'/>
           <MovieRow title="Most watched in Horror" url='genre/27/movies?sort_by=popularity.desc&page=1'/>
+          <MovieRow title="Most watched in Comedy" url='genre/35/movies?sort_by=popularity.desc&page=1'/>
+          <MovieRow title="Most watched in Science Fiction" url='genre/878/movies?sort_by=popularity.desc&page=1'/>
       </div>
     );
   }
